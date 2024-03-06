@@ -21,22 +21,28 @@ export default function Textm(props) {
     let text = document.getElementById("exampleFormControlTextarea1").value;
     navigator.clipboard.writeText(text);
   };
-  const handleExtraSpace = () =>{
+  const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-  }
+  };
   return (
     <>
       <div className="contsiner">
         <div className=" mb-3">
-          <h2>{props.title}</h2>
+          <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+            {props.title}
+          </h2>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
             value={text}
             onChange={handleOnChange}
+            style={{
+              resize: "none",
+              backgroundColor: props.mode === "dark" ? "gray" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
             rows={8}
-            style={{ resize: "none" }}
           />
         </div>
         <button className="btn btn-primary mx-2" onClick={handleUpCase}>
@@ -51,14 +57,14 @@ export default function Textm(props) {
         <button className="btn btn-primary mx-2" onClick={handleCopy}>
           Copy text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
-          Copy text
-        </button>
         <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>
           Remove Extra Space
         </button>
       </div>
-      <div className="container my-2">
+      <div
+        className="container my-2"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h1>Your Text Summary</h1>
         <p>
           {text.split(" ").length} words and {text.length} characters
@@ -71,7 +77,11 @@ export default function Textm(props) {
           value={text}
           onChange={handleOnChange}
           rows={8}
-          style={{ resize: "none" }}
+          style={{
+            resize: "none",
+            backgroundColor: props.mode === "dark" ? "gray" : "white",
+            color: props.mode === "dark" ? "white" : "black",
+          }}
         />
       </div>
     </>
