@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Textm(props) {
-  const [text, setText] = useState("enter text here");
+  const [text, setText] = useState("");
   const handleUpCase = () => {
     let newText = text.toUpperCase();
     setText(newText);
@@ -10,6 +10,10 @@ export default function Textm(props) {
     let newText = text.toLowerCase();
     setText(newText);
   };
+  const handleClearText = () =>{
+    let newText = '';
+    setText(newText);
+  }
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -33,6 +37,9 @@ export default function Textm(props) {
         <button className="btn btn-primary mx-2" onClick={handleLowerCase}>
           Convert to LowerCase
         </button>
+        <button className="btn btn-primary mx-2" onClick={handleClearText}>
+          Clear text
+        </button>
       </div>
       <div className="container my-2">
         <h1>Your Text Summary</h1>
@@ -41,7 +48,14 @@ export default function Textm(props) {
         </p>
         <p>{0.008 * text.split(" ").length} Minuts read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <textarea
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            value={text}
+            onChange={handleOnChange}
+            rows={8}
+            style={{ resize: "none" }}
+          />
       </div>
     </>
   );
