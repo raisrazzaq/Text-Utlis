@@ -40,7 +40,7 @@ export default function Navbar(props) {
             }`}
           >
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               onChange={props.toggleMode}
               role="switch"

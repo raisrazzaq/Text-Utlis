@@ -5,14 +5,17 @@ export default function Textm(props) {
   const handleUpCase = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UpperCase!", "success");
   };
   const handleLowerCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowerCase!", "success");
   };
   const handleClearText = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Cleared Text!", "success");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -20,10 +23,12 @@ export default function Textm(props) {
   const handleCopy = () => {
     let text = document.getElementById("exampleFormControlTextarea1").value;
     navigator.clipboard.writeText(text);
+    props.showAlert("Copied text to clipboard!", "success");
   };
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Removed extra spaces!", "success");
   };
   return (
     <>
