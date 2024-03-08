@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React, { useState } from "react";
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
@@ -44,12 +44,13 @@ function App() {
       <Alert alert={alert} />
       <div className="container my-3">
         <TextForm
-          title="Enter the text to analyze Bellow"
+          title="Try TextUtils - Word Counter , Remove extra spaces"
           showAlert={showAlert}
           mode={mode}
         />
-        {/* <About /> */}
+       
       </div>
+      {/* <About  mode={mode} /> */}
     </>
   );
 }

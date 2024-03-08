@@ -34,7 +34,7 @@ export default function Textm(props) {
     <>
       <div className="contsiner">
         <div className=" mb-3">
-          <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          <h2 style={{ color: props.mode === "dark" ? "white" : "black",}}>
             {props.title}
           </h2>
           <textarea
@@ -44,37 +44,37 @@ export default function Textm(props) {
             onChange={handleOnChange}
             style={{
               resize: "none",
-              backgroundColor: props.mode === "dark" ? "gray" : "white",
+              backgroundColor: props.mode === "dark" ? "#13466e" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
             rows={8}
           />
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpCase}>
+        <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleUpCase}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerCase}>
+        <button disabled={text.length === 0}className="btn btn-primary mx-1 my-1" onClick={handleLowerCase}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClearText}>
+        <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleClearText}>
           Clear text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>
           Copy text
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>
+        <button disabled={text.length === 0}className="btn btn-primary mx-1 my-1" onClick={handleExtraSpace}>
           Remove Extra Space
         </button>
       </div>
       <div
-        className="container my-2"
+        className="container my-1"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <h1>Your Text Summary</h1>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minuts read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minuts read</p>
         <h2>Preview</h2>
         <textarea
           className="form-control"
@@ -84,7 +84,7 @@ export default function Textm(props) {
           rows={8}
           style={{
             resize: "none",
-            backgroundColor: props.mode === "dark" ? "gray" : "white",
+            backgroundColor: props.mode === "dark" ? "#13466e" : "white",
             color: props.mode === "dark" ? "white" : "black",
           }}
         />

@@ -6,7 +6,7 @@ const Alert = (props) => {
     return lower.charAt(0).toUpperCase() + lower.slice(1);
   };
   return (
-    <div>
+    <div style={{height:50}}>
       {props.alert && (
         <div
           className={`alert alert-${props.alert.type} alert-dismissible fade show`}
@@ -15,7 +15,7 @@ const Alert = (props) => {
           <strong>{Captilize(props.alert.type)}</strong>:{props.alert.msg}
         </div>
       )}
-    </div>
+    </div> 
   );
 };
 
