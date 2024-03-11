@@ -1,11 +1,10 @@
-// import logo from './logo.svg';
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import About from "./components/About";
 import Navbar from "./components/Navbar";
-import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-// import InputComponent from "./components/input";
+import Home from "./components/Home";
+import About from "./components/About";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -34,7 +33,7 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Navbar
         title="TextUtlis"
         AboutText="About"
@@ -43,15 +42,15 @@ function App() {
       />
       <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm
-          title="Try TextUtils - Word Counter , Remove extra spaces"
-          showAlert={showAlert}
-          mode={mode}
-        />
-       
+        <Routes>
+          <Route
+            path="/"
+            element={<Home title="Try TextUtils - Word Counter , Remove extra spaces" showAlert={showAlert} mode={mode} />}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
-      {/* <About  mode={mode} /> */}
-    </>
+    </Router>
   );
 }
 

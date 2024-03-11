@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-export default function Textm(props) {
+export default function Home(props) {
   const [text, setText] = useState("");
   const handleUpCase = () => {
     let newText = text.toUpperCase();
